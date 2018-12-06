@@ -11,7 +11,12 @@ const server = express();
 server.use(express.json(), logger("tiny"), helmet(), customMW.gatekeeper)
 
 // route handlers
-
+server.get("/", (req, res) => {
+  res.json("this is live");
+});
+server.get("/enterance", (req, res) => {
+  res.json({ message: "Access Granted" });
+});
 server.get("/enterance", (req, res) => {
   res.json({ message: "Access Granted" });
 });
