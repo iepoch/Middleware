@@ -2,13 +2,13 @@
 const express = require("express");
 const helmet = require("helmet");
 const logger = require("morgan");
-const customMW = require("./custom_middleware.js");
+// const customMW = require("./custom_middleware.js");
 //add server
 const PORT = process.env.PORT || 9000;
 const server = express();
 
 //middleware
-server.use(express.json(), logger("tiny"), helmet(), customMW.gatekeeper);
+server.use(express.json(), logger("tiny"), helmet());
 
 // route handlers
 server.get("/", (req, res) => {
